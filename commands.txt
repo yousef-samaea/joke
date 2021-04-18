@@ -1,0 +1,40 @@
+psql -d books_app -f data/books.sql
+heroku pg:psql -f data/books.sql --app book-app-samara
+
+sudo service postgresql start
+`UPDATE books SET title=$1,author=$2,ISBN=$3,image_url=$4,description=$5,bookshelf=$6 WHERE id =$7;`;
+
+-----------------
+npm init -y
+npm install express cors superagent pg express-ejs-layouts ejs dotenv
+psql -d jokes -f schema.sql
+<%- include('partials/head') %>
+const express = require("express");
+DATABASE_URL = postgres://hisham:pass@localhost:5432/book_app
+<% jokes.forEach(joke =>{ %>
+ <% });%>
+heroku pg:psql -f path/to/schema.sql --app your-heroku-app-name-here
+10:21
+-------------------------
+10:21
+const express = require("express");
+const cors = require("cors");
+require("dotenv").config(".env");
+const expressLayouts = require("express-ejs-layouts");
+const pg = require("pg");
+var methodOverride = require("method-override");
+const app = express();
+const superagent = require("superagent");
+const PORT = process.env.PORT || 3000;
+const client = new pg.Client(process.env.DATABASE_URL);
+app.use(methodOverride("_method"));
+app.use(cors());
+app.set("view engine", "ejs");
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
+app.use(expressLayouts);
+client.connect().then(() => {
+    app.listen(PORT, () => {
+        console.log("I am listening to port: ", PORT);
+    });
+});

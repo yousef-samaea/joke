@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+<header>
+    <nav>
+        <ul>
+            <li><a href="/">home page</a></li>
+            <li><a href="/favorite-jokes">favorite jokes</a></li>
+            <li><a href="/random">random joke</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="allJokesContainer">
+<% jokes.forEach((joke, idx) => { %>
+<div class="one-joke">
+<h4>Joke number: <%= idx+1 %> </h4>
+<h5>type: <%= joke.type %> </h5>
+<h5>setup: <%= joke.setup %> </h5>
+<h5>punchline: <%= joke.punchline %> </h5>
+<form action="/addJoke" method="POST">
+    <input type="hidden" name="type" value="<%= joke.type %>">
+    <input type="hidden" name="setup" value="<%= joke.setup %>">
+    <input type="hidden" name="punchline" value="<%= joke.punchline %>">
+<button type="submit">Add to my jokes list</button>
+</form>
+</div>
+<% }) %>
+</section>
+
+</main>
+
+<footer></footer>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+<header></header>
+
+<main>
+    <section class="allJokesContainer">
+
+<div class="one-joke">
+<h5>type: <%= joke.type %> </h5>
+<h5>setup: <%= joke.setup %> </h5>
+<h5>punchline: <%= joke.punchline %> </h5>
+<form action="/jokes/update?_method=delete" method="POST">
+    <input type="hidden" name="id" value="<%= joke.id %>">
+<button type="submit">delete joke</button>
+</form>
+<form action="/jokes/update?_method=put" method="POST">
+    <input type="hidden" name="id" value="<%= joke.id %>">
+    <input type="hidden" name="type" value="<%= joke.type %>">
+    <input type="hidden" name="setup" value="<%= joke.setup %>">
+    <input type="hidden" name="punchline" value="<%= joke.punchline %>">
+<button type="submit">update joke</button>
+</form>
+</div>
+
+</section>
+
+</main>
+
+<footer></footer>
+
+</body>
+</html>
